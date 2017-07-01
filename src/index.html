@@ -51,7 +51,7 @@
         + '<td>' + item.created + '</td>'
         + '<td>' + item.updated + '</td>'
         + '<td>'
-        + '<button type="button" class="btn btn-danger">삭제</button>'
+        + '<button type="button" class="btn btn-danger" onclick="remove(' + index + ')">삭제</button>'
         + '</td>'
         + '</tr>';
       $('#todo_list').append(todo);
@@ -65,6 +65,11 @@
     todo.updated = new Date();
 
     //뷰 갱신
+    refresh();
+  }
+
+  function remove(index) {
+    todo_list.splice(index, 1);
     refresh();
   }
 </script>
