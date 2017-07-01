@@ -12,10 +12,59 @@
 
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>Loading...</app-root>
 </body>
 </html>
 
 <script>
+  var todo_list = []; //모델
 
+
+  function add_todo() {
+    //모델 변수 업데이트
+    var todo = {
+      isFinished: false,
+      toDo: $('#input_todo').val(),
+      created: new Date(),
+      updated: new Date()
+    };
+
+    todo_list.unshift(todo);
+
+    //뷰 갱신
+    refresh();
+  }
+
+  function refresh() {
+    //todo_list 노드의 모든 자식을 삭제
+    $('#todo_list').empty();
+
+    //todo_list 모델을 바인딩
+    todo_list.forEach(function (item, index) {
+      var todo = '    <tr>'
+        + '<td>'
+        + '<input type="checkbox" ' + (item.isFinished?'checked':'') + ' onchange="update(' + index + ')"' + '>'
+        + '</td>'
+        + (item.isFinished?'<td style="text-decoration: line-through">':'<td>')
+        +  item.toDo
+        + '</td>'
+        + '<td>' + item.created + '</td>'
+        + '<td>' + item.updated + '</td>'
+        + '<td>'
+        + '<button type="button" class="btn btn-danger">삭제</button>'
+        + '</td>'
+        + '</tr>';
+      $('#todo_list').append(todo);
+    });
+  }
+
+  function update(index) {
+    //모델 값 변경
+    var todo = todo_list[index];
+    todo.isFinished =  !todo.isFinished;
+    todo.updated = new Date();
+
+    //뷰 갱신
+    refresh();
+  }
 </script>
