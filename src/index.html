@@ -23,15 +23,26 @@
     //모델 변수 업데이트
     var todo = {
       isFinished: false,
-      toDo: $('#input_todo').val(),
-      created: new Date(),
-      updated: new Date()
+      todo: $('#input_todo').val()
     };
 
-    todo_list.unshift(todo);
+    // jquery post
+    $.ajax({
+      url: 'http://www.javabrain.kr:8080/api/todo',
+      method: 'post',
+      data: JSON.stringify(todo),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        if (data.result === 0) {
+          todo_list.unshift(todo);
+          //뷰 갱신
+          refresh();
+        }
+      }
+    });
 
-    //뷰 갱신
-    refresh();
+
   }
 
   function refresh() {
@@ -45,7 +56,7 @@
         + '<input type="checkbox" ' + (item.isFinished?'checked':'') + ' onchange="update(' + index + ')"' + '>'
         + '</td>'
         + (item.isFinished?'<td style="text-decoration: line-through">':'<td>')
-        +  item.toDo
+        +  item.todo
         + '</td>'
         + '<td>' + item.created + '</td>'
         + '<td>' + item.updated + '</td>'

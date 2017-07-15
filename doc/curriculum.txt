@@ -35,3 +35,17 @@ other http client: Retrofit
 html5 Form API
 angular form
 angular architecture
+http
+service
+
+- 5 week
+material design + 반응형웹
+login 화면 구현, 인증
+네이버 아이디 로그인
+
+- 6 week
+네이버 댓글 구현
+파일업로드
+
+- 7week
+챗팅 구현(mqtt)
