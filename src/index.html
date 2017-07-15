@@ -19,12 +19,11 @@
 <script>
   var todo_list = []; //모델
 
-
   function add_todo() {
     //모델 변수 업데이트
     var todo = {
       isFinished: false,
-      toDo: $('#input_todo').val(),
+      toDd: $('#input_todo').val(),
       created: new Date(),
       updated: new Date()
     };
@@ -46,7 +45,7 @@
         + '<input type="checkbox" ' + (item.isFinished?'checked':'') + ' onchange="update(' + index + ')"' + '>'
         + '</td>'
         + (item.isFinished?'<td style="text-decoration: line-through">':'<td>')
-        +  item.toDo
+        +  item.todo
         + '</td>'
         + '<td>' + item.created + '</td>'
         + '<td>' + item.updated + '</td>'

@@ -1,0 +1,24 @@
+- 2 week
+this 의미 이해하기
+http://resoneit.blogspot.kr/2014/01/this.html
+
+- 3 week
+https://developer.mozilla.org/ko/docs/XMLHttpRequest
+
+* es6
+
+* 책
+- 반응형웹
+https://github.com/benfrain/rwd
+
+- HTML5 API
+https://github.com/itsmeyjc/HTML5app-kame
+8가지 api
+Html5 form api
+drag and drop api
+geolocation api
+web storage api
+indexedDB api
+file api
+communication api
+web worker api

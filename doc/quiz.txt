@@ -1,0 +1,23 @@
+- 1 week
+What is CommonJS spec?
+What is SPA?
+What is difference between forEach and map?
+What is type of books? and how many are javascript type?
+What is container and container-fluid? Which is sutable for responsive web?
+
+- 2 week
+인터넷 표준 프로토콜을 만드는 단체는 어디인가?
+인터넷 표준이 되기위해서 어떤 절차를 거치는가?
+cookie가 명시된 표준 문서를 찾고 쿠키가 필요한 이유를 프로토콜로 설명하시오.
+session은 표준인가?
+cookie 와 storage의 차이점은 무엇인가?
+
+- 3 week
+keep alive 란 무엇인가?
+REST api는 표준인가?
+CORS란 무엇인가?
+mqtt 와 비교했을때 http의 단점은 무엇인가?
+채팅서버를 만들수 있는 모든 방법을 나열하시오.
+푸쉬서버를 만들수 있는 모든 방법을 나열하시오.
+angular context 에서 글로벌 변수를 사용하는 방법은 무엇인가?
+XmlHttpRequest 객체에서 비동기처리를 지원해주는 속성은 무엇인가?
