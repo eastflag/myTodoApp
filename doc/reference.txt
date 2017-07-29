@@ -5,6 +5,9 @@ http://resoneit.blogspot.kr/2014/01/this.html
 - 3 week
 https://developer.mozilla.org/ko/docs/XMLHttpRequest
 
+* sass
+https://velopert.com/1712
+
 * es6
 
 * 책
