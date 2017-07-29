@@ -41,8 +41,6 @@ angular form 적용해보기
   submit 이벤트는 언제 적용되는가?
   ngStyle 바인딩과 class 바인딩을 사용하여 취소선 구현하기
 date 표현을 pipe로 표현하기
-할일 추가 및 삭제를 angular 애니메이션을 사용하여 구현하기
-directive 적용하기
 버튼 클릭 효과 sass로 구현하기
    $ 변수 사용하기
    darken 내장 함수 사용하기
@@ -50,6 +48,9 @@ directive 적용하기
    & 레퍼런스 연산자 사용
    active 수도 클래스 구현
    transform 으로 translate 하기
+할일 추가 및 삭제를 angular 애니메이션을 사용하여 구현하기
+directive 적용하기
+
 http
 service
 

@@ -8,6 +8,7 @@ import {AppRoutingModule} from "./app-routing";
 import {JqueryComponent} from "./jquery/jquery.component";
 import {AngularComponent} from "./angular/angular.component";
 import {FormsModule} from "@angular/forms";
+import {MyDatePipe} from "./shared/my.date.pipe";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     JqueryComponent,
     AngularComponent,
+    MyDatePipe,
   ],
   imports: [
     BrowserModule,

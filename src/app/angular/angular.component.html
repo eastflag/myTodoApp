@@ -33,8 +33,8 @@
         <td [class.todo_checked]="todo.isFinished">
           {{todo.todo}}
         </td>
-        <td>{{getCurrentDate(todo.created)}}</td>
-        <td>{{ todo.updated | date: "yyyy-MM-dd hh:mm:ss"}}</td>
+        <td>{{ todo.created | myDate }}</td>
+        <td>{{ todo.updated | myDate }}</td>
         <td>
           <button type="button" class="btn btn-danger">삭제</button>
         </td>

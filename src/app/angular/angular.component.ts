@@ -24,19 +24,4 @@ export class AngularComponent {
     this.todoList[index].isFinished = !this.todoList[index].isFinished;
   }
 
-  getCurrentDate(myDate: string): string {
-    const date = new Date(myDate);
-    return date.getFullYear() + "-" + (this.addZero(date.getMonth() + 1)) + "-" + this.addZero(date.getDate()) + " "
-      + this.addZero(date.getHours()) + ":" + this.addZero(date.getMinutes()) + ":" + this.addZero(date.getSeconds());
-  }
-
-  addZero(digit: number): string {
-    // digit 가 문자가 아니라 숫자이다 digit.length로는 안됨.
-    if (digit < 10) {
-      return "0" + digit;
-    } else {
-      return "" + digit;
-    }
-  }
-
 }
