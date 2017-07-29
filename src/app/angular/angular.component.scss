@@ -1,3 +1,24 @@
 .todo_checked {
   text-decoration: line-through;
 }
+
+$buttonColor: #337ab7;
+$buttonDark: darken($buttonColor, 10%);
+$buttonDarker: darken($buttonDark, 10%);
+
+button.primary_active {
+  box-shadow: 0px 5px 5px $buttonDark;
+
+  &:hover {
+    background: $buttonDark;
+    box-shadow: 0px 5px 0px $buttonDarker;
+  }
+  &:active {
+    box-shadow: none;
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    -o-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+}
