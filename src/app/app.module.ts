@@ -9,6 +9,7 @@ import {JqueryComponent} from "./jquery/jquery.component";
 import {AngularComponent} from "./angular/angular.component";
 import {FormsModule} from "@angular/forms";
 import {MyDatePipe} from "./shared/my.date.pipe";
+import {HighlightDirective} from "./shared/highlight.directive";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {MyDatePipe} from "./shared/my.date.pipe";
     JqueryComponent,
     AngularComponent,
     MyDatePipe,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,

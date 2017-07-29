@@ -23,7 +23,7 @@
     <th>삭제</th>
     </thead>
     <tbody id="todo_list">
-      <tr *ngFor="let todo of todoList; let i = index;">
+      <tr *ngFor="let todo of todoList; let i = index;" [myHighlight]>
         <td>
           <input type="checkbox" (change)="updated(i)">
         </td>
