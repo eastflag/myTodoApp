@@ -1,12 +1,15 @@
 <div class="container-fluid">
   <h2>My Todo's</h2>
   <div class="row">
-    <div class="col-xs-8">
-      <input type="text" class="form-control" placeholder="할일" id="input_todo">
-    </div>
-    <div class="col-xs-4">
-      <button type="button" class="btn btn-primary btn-block" (click)="add_todo()">추가</button>
-    </div>
+    <form (ngSubmit)="add_todo()" ngNativeValidate>
+      <div class="col-xs-8">
+        <input type="text" class="form-control" placeholder="할일" id="input_todo" name="todo" required
+               [(ngModel)]="todo">
+      </div>
+      <div class="col-xs-4">
+        <button type="submit" class="btn btn-primary btn-block">추가</button>
+      </div>
+    </form>
   </div>
 
   <hr>
@@ -20,7 +23,22 @@
     <th>삭제</th>
     </thead>
     <tbody id="todo_list">
-
+      <tr *ngFor="let todo of todoList; let i = index;">
+        <td>
+          <input type="checkbox" (change)="updated(i)">
+        </td>
+<!--        <td [ngStyle]="{'text-decoration': todo.isFinished ? 'line-through': 'none'}">
+          {{todo.todo}}
+        </td>-->
+        <td [class.todo_checked]="todo.isFinished">
+          {{todo.todo}}
+        </td>
+        <td>{{getCurrentDate(todo.created)}}</td>
+        <td>{{ todo.updated | date: "yyyy-MM-dd hh:mm:ss"}}</td>
+        <td>
+          <button type="button" class="btn btn-danger">삭제</button>
+        </td>
+      </tr>
     </tbody>
   </table>
 

@@ -7,6 +7,7 @@ import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing";
 import {JqueryComponent} from "./jquery/jquery.component";
 import {AngularComponent} from "./angular/angular.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {AngularComponent} from "./angular/angular.component";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
