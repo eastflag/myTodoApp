@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <h2>My Todo's</h2>
+  <div class="row">
+    <div class="col-xs-8">
+      <input type="text" class="form-control" placeholder="할일" id="input_todo">
+    </div>
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-primary btn-block" (click)="add_todo()">추가</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <table class="table table-striped">
+    <thead>
+    <th>완료</th>
+    <th>todo</th>
+    <th>생성일</th>
+    <th>수정일</th>
+    <th>삭제</th>
+    </thead>
+    <tbody id="todo_list">
+
+    </tbody>
+  </table>
+
+</div>

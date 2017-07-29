@@ -6,13 +6,15 @@ import {BootstrapComponent} from "./bootstrap/bootstrap.component";
 import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing";
 import {JqueryComponent} from "./jquery/jquery.component";
+import {AngularComponent} from "./angular/angular.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     BootstrapComponent,
     HomeComponent,
-    JqueryComponent
+    JqueryComponent,
+    AngularComponent,
   ],
   imports: [
     BrowserModule,
