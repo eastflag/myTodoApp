@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <h2>My Todo's</h2>
+  <div class="row">
+    <form (ngSubmit)="add_todo()" ngNativeValidate>
+      <div class="col-xs-8">
+        <input type="text" class="form-control" placeholder="할일" id="input_todo" name="todo" required
+               [(ngModel)]="todo">
+      </div>
+      <div class="col-xs-4">
+        <button type="submit" class="btn btn-primary btn-block primary_active">추가</button>
+      </div>
+    </form>
+  </div>
+
+  <hr>
+
+  <table class="table table-striped">
+    <thead>
+    <th>완료</th>
+    <th>todo</th>
+    <th>생성일</th>
+    <th>수정일</th>
+    <th>삭제</th>
+    </thead>
+    <tbody id="todo_list">
+      <tr *ngFor="let todo of todoList; let i = index;" [myHighlight] [@flyInOut]="'in'">
+        <td>
+          <input type="checkbox" (change)="updated(i)">
+        </td>
+<!--        <td [ngStyle]="{'text-decoration': todo.isFinished ? 'line-through': 'none'}">
+          {{todo.todo}}
+        </td>-->
+        <td [class.todo_checked]="todo.isFinished">
+          {{todo.todo}}
+        </td>
+        <td>{{ todo.created | myDate }}</td>
+        <td>{{ todo.updated | myDate }}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="delete(i)">삭제</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

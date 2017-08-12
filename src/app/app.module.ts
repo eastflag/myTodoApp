@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {MyDatePipe} from "./shared/my.date.pipe";
 import {HighlightDirective} from "./shared/highlight.directive";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpComponent} from "./http/http.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AngularComponent,
     MyDatePipe,
     HighlightDirective,
+    HttpComponent,
   ],
   imports: [
     BrowserModule,
