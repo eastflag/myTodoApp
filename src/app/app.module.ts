@@ -12,6 +12,8 @@ import {MyDatePipe} from "./shared/my.date.pipe";
 import {HighlightDirective} from "./shared/highlight.directive";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpComponent} from "./http/http.component";
+import {AppService} from "./app.service";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -28,9 +30,10 @@ import {HttpComponent} from "./http/http.component";
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
