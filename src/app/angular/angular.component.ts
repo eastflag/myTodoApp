@@ -1,9 +1,22 @@
 import {Component} from "@angular/core";
 import {TodoVo} from "../domain/todo.vo";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   templateUrl: 'angular.component.html',
-  styleUrls: ['angular.component.scss']
+  styleUrls: ['angular.component.scss'],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({transform: 'translateX(100%)'}))
+      ])
+    ])
+  ]
 })
 export class AngularComponent {
   todo: string;
@@ -24,4 +37,10 @@ export class AngularComponent {
     this.todoList[index].isFinished = !this.todoList[index].isFinished;
   }
 
+  delete(index: number) {
+    let result = confirm("삭제하시겠습니까?");
+    if (result) {
+      this.todoList.splice(index, 1);
+    }
+  }
 }

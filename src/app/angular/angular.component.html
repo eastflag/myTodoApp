@@ -23,7 +23,7 @@
     <th>삭제</th>
     </thead>
     <tbody id="todo_list">
-      <tr *ngFor="let todo of todoList; let i = index;" [myHighlight]>
+      <tr *ngFor="let todo of todoList; let i = index;" [myHighlight] [@flyInOut]="'in'">
         <td>
           <input type="checkbox" (change)="updated(i)">
         </td>
@@ -36,7 +36,7 @@
         <td>{{ todo.created | myDate }}</td>
         <td>{{ todo.updated | myDate }}</td>
         <td>
-          <button type="button" class="btn btn-danger">삭제</button>
+          <button type="button" class="btn btn-danger" (click)="delete(i)">삭제</button>
         </td>
       </tr>
     </tbody>
