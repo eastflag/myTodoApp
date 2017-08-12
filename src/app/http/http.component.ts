@@ -1,6 +1,7 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {TodoVo} from "../domain/todo.vo";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {AppService} from "../app.service";
 
 @Component({
   templateUrl: 'http.component.html',
@@ -18,19 +19,35 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ])
   ]
 })
-export class HttpComponent {
+export class HttpComponent implements OnInit {
   todo: string;
   // 1. 모델 정의
   todoList = [];
 
+  constructor(private appService: AppService) {
+
+  }
+
+  ngOnInit(): void {
+    this.findTodo();
+  }
+
+  findTodo() {
+    this.appService.findTodo()
+      .then(body => {
+        console.log(body);
+        this.todoList = body;
+      });
+  }
+
   add_todo() {
-    // todo 리터럴 객체를 생성
-    let item = new TodoVo(false, this.todo, new Date().toString(), new Date().toString());
-
-    // todoList 배열에 담기
-    this.todoList.unshift(item);
-
-    this.todo = null;
+    let item = new TodoVo(false, this.todo);
+    this.appService.addTodo(item)
+      .then(body => {
+        if(body.result === 0) {
+          this.findTodo();
+        }
+      })
   }
 
   updated(index: number): void {

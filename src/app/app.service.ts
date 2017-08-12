@@ -15,7 +15,12 @@ export class AppService {
   }
 
   addTodo(params) {
-    this.http.post(environment.HOST + '/api/todo', params, this.headers)
+    return this.http.post(environment.HOST + '/api/todo', params, this.headers)
+      .toPromise().then(this.extractData).catch(this.handleError);
+  }
+
+  findTodo(): Promise<any> {
+    return this.http.get(environment.HOST + '/api/todo')
       .toPromise().then(this.extractData).catch(this.handleError);
   }
 
