@@ -59,10 +59,19 @@ export class HttpComponent implements OnInit {
       })
   }
 
-  delete(index: number) {
+  delete(todo: TodoVo) {
     let result = confirm("삭제하시겠습니까?");
     if (result) {
-      this.todoList.splice(index, 1);
+      this.appService.removeTodo(todo.todo_id)
+        .then((data) => {
+          if(data.result === 0) {
+            this.todoList.forEach((item, index) => {
+              if (item.todo_id === todo.todo_id) {
+                this.todoList.splice(index, 1);
+              }
+            })
+          }
+        });
     }
   }
 }

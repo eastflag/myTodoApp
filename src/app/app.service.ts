@@ -24,6 +24,11 @@ export class AppService {
       .toPromise().then(this.extractData).catch(this.handleError);
   }
 
+  removeTodo(params: number) {
+    return this.http.delete(environment.HOST + '/api/todo?todo_id=' + params)
+      .toPromise().then(this.extractData).catch(this.handleError);
+  }
+
   findTodo(): Promise<any> {
     return this.http.get(environment.HOST + '/api/todo')
       .toPromise().then(this.extractData).catch(this.handleError);

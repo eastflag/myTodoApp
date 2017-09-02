@@ -36,7 +36,7 @@
         <td>{{ todo.created | myDate }}</td>
         <td>{{ todo.updated | myDate }}</td>
         <td>
-          <button type="button" class="btn btn-danger" (click)="delete(i)">삭제</button>
+          <button type="button" class="btn btn-danger" (click)="delete(todo)">삭제</button>
         </td>
       </tr>
     </tbody>
