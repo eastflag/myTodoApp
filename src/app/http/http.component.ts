@@ -43,10 +43,10 @@ export class HttpComponent implements OnInit {
   add_todo() {
     let item = new TodoVo(false, this.todo);
     this.appService.addTodo(item)
-      .then(body => {
-        if(body.result === 0) {
-          this.findTodo();
+      .then(data => {
+        if(data) {
           // todo: 전체가 애니메이션 되므로 하나만 추가해야 함.
+          this.todoList.unshift(data);
         }
       })
   }
