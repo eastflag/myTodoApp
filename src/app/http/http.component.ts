@@ -53,9 +53,12 @@ export class HttpComponent implements OnInit {
 
   updated(todo: TodoVo): void {
     this.appService.modifyTodo(todo)
-      .then((data) => {
+      .then((data: TodoVo) => {
         //call by value 와 call by reference
-        todo = data;
+        todo.isFinished = data.isFinished;
+        todo.todo = data.todo;
+        todo.updated = data.updated;
+        todo.isEdited = false;
       })
   }
 

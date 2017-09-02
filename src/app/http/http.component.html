@@ -54,7 +54,7 @@
         <td>{{ todo.created | myDate }}</td>
         <td>{{ todo.updated | myDate }}</td>
         <td>
-          <button type="button" class="btn btn-primary">저장</button>
+          <button type="button" class="btn btn-primary" (click)="updated(todo)">저장</button>
           <button type="button" class="btn btn-danger" (click)="restore(todo)">취소</button>
         </td>
       </tr>
