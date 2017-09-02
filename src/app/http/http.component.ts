@@ -23,6 +23,8 @@ export class HttpComponent implements OnInit {
   todo: string;
   // 1. 모델 정의
   todoList = [];
+  // 저장, 복원할 컬렉션 정의
+  tempTodoList: Map<number, TodoVo>  = new Map<number, TodoVo>();
 
   constructor(private appService: AppService) {
 
@@ -80,12 +82,19 @@ export class HttpComponent implements OnInit {
 
   save(todo: TodoVo) {
     // 기존 데이터 저장
+    let tempTodo: TodoVo = new TodoVo();
+    tempTodo.isFinished = todo.isFinished;
+    tempTodo.todo = todo.todo;
+    this.tempTodoList.set(todo.todo_id, tempTodo);
 
     todo.isEdited = true;
   }
 
   restore(todo: TodoVo) {
     // 기존 데이터 복원
+    let tempTodo: TodoVo = this.tempTodoList.get(todo.todo_id);
+    todo.isFinished = tempTodo.isFinished;
+    todo.todo = tempTodo.todo;
 
     todo.isEdited = false;
   }
