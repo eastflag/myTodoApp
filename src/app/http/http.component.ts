@@ -74,4 +74,16 @@ export class HttpComponent implements OnInit {
         });
     }
   }
+
+  save(todo: TodoVo) {
+    // 기존 데이터 저장
+
+    todo.isEdited = true;
+  }
+
+  restore(todo: TodoVo) {
+    // 기존 데이터 복원
+
+    todo.isEdited = false;
+  }
 }

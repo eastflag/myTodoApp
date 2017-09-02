@@ -23,22 +23,45 @@
     <th>삭제</th>
     </thead>
     <tbody id="todo_list">
-      <tr *ngFor="let todo of todoList; let i = index;" [myHighlight] [@flyInOut]="'in'">
+    <ng-template ngFor let-todo [ngForOf]="todoList">
+      <!-- 기본 템플릿 -->
+      <tr *ngIf="!todo.isEdited">
         <td>
-          <input type="checkbox" [(ngModel)]="todo.isFinished" (change)="updated(todo)">
+          {{todo.isFinished ? '완료' : '미완료'}}
         </td>
-<!--        <td [ngStyle]="{'text-decoration': todo.isFinished ? 'line-through': 'none'}">
-          {{todo.todo}}
-        </td>-->
+        <!--        <td [ngStyle]="{'text-decoration': todo.isFinished ? 'line-through': 'none'}">
+                  {{todo.todo}}
+                </td>-->
         <td [class.todo_checked]="todo.isFinished">
           {{todo.todo}}
         </td>
         <td>{{ todo.created | myDate }}</td>
         <td>{{ todo.updated | myDate }}</td>
         <td>
+          <button type="button" class="btn btn-primary" (click)="save(todo)">수정</button>
           <button type="button" class="btn btn-danger" (click)="delete(todo)">삭제</button>
         </td>
       </tr>
+
+      <!-- 수정 템플릿 -->
+      <tr *ngIf="todo.isEdited">
+        <td>
+          <input type="checkbox" [(ngModel)]="todo.isFinished">
+        </td>
+        <td>
+          <input [(ngModel)]="todo.todo">
+        </td>
+        <td>{{ todo.created | myDate }}</td>
+        <td>{{ todo.updated | myDate }}</td>
+        <td>
+          <button type="button" class="btn btn-primary">저장</button>
+          <button type="button" class="btn btn-danger" (click)="restore(todo)">취소</button>
+        </td>
+      </tr>
+
+    </ng-template>
+
+
     </tbody>
   </table>
 
