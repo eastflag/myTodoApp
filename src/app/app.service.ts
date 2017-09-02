@@ -19,6 +19,11 @@ export class AppService {
       .toPromise().then(this.extractData).catch(this.handleError);
   }
 
+  modifyTodo(params) {
+    return this.http.put(environment.HOST + '/api/todo', params, this.headers)
+      .toPromise().then(this.extractData).catch(this.handleError);
+  }
+
   findTodo(): Promise<any> {
     return this.http.get(environment.HOST + '/api/todo')
       .toPromise().then(this.extractData).catch(this.handleError);
