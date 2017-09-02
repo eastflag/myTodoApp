@@ -15,11 +15,13 @@ import {HttpComponent} from "./http/http.component";
 import {AppService} from "./app.service";
 import {HttpModule} from "@angular/http";
 import {MdPaginatorModule} from "@angular/material";
+import {IndexComponent} from "./index.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     BootstrapComponent,
+    IndexComponent,
     HomeComponent,
     JqueryComponent,
     AngularComponent,
