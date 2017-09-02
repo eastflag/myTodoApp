@@ -14,6 +14,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpComponent} from "./http/http.component";
 import {AppService} from "./app.service";
 import {HttpModule} from "@angular/http";
+import {MdPaginatorModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {HttpModule} from "@angular/http";
     FormsModule,
     AppRoutingModule,
     HttpModule,
+    MdPaginatorModule,
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

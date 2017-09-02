@@ -65,4 +65,10 @@
     </tbody>
   </table>
 
+  <md-paginator [length]="page.totalCount"
+                [pageSize]="page.pageSize"
+                [pageSizeOptions]="page.pageSizeOptions"
+                (page)="pageChanged($event)">
+  </md-paginator>
+
 </div>

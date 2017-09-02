@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {TodoVo} from "../domain/todo.vo";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {AppService} from "../app.service";
+import {PageVO} from "../domain/PageVO";
+import {PageEvent} from "@angular/material";
 
 @Component({
   templateUrl: 'http.component.html',
@@ -25,9 +27,11 @@ export class HttpComponent implements OnInit {
   todoList = [];
   // 저장, 복원할 컬렉션 정의
   tempTodoList: Map<number, TodoVo>  = new Map<number, TodoVo>();
+  //페이징 변수
+  page; PageVO;
 
   constructor(private appService: AppService) {
-
+    this.page = new PageVO(0, 10, 50, [10, 25, 50, 100]);
   }
 
   ngOnInit(): void {
@@ -35,7 +39,7 @@ export class HttpComponent implements OnInit {
   }
 
   findTodo() {
-    this.appService.findTodo()
+    this.appService.findTodo(this.page)
       .then(body => {
         console.log(body);
         this.todoList = body;
@@ -97,5 +101,12 @@ export class HttpComponent implements OnInit {
     todo.todo = tempTodo.todo;
 
     todo.isEdited = false;
+  }
+
+  pageChanged(event: PageEvent) {
+    //페이지 변경 처리
+    console.log(event);
+    this.page.pageIndex = event.pageIndex;
+    this.findTodo();
   }
 }

@@ -3,6 +3,7 @@ import {Injectable} from "@angular/core";
 import {environment} from "../environments/environment";
 
 import 'rxjs/add/operator/toPromise';
+import {PageVO} from "./domain/PageVO";
 
 @Injectable()
 export class AppService {
@@ -29,8 +30,8 @@ export class AppService {
       .toPromise().then(this.extractData).catch(this.handleError);
   }
 
-  findTodo(): Promise<any> {
-    return this.http.get(environment.HOST + '/api/todo')
+  findTodo(page: PageVO): Promise<any> {
+    return this.http.get(environment.HOST + `/api/todo?start_index=` + page.pageIndex*page.pageSize + '&page_size=' + page.pageSize)
       .toPromise().then(this.extractData).catch(this.handleError);
   }
 
